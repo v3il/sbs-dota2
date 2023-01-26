@@ -1,0 +1,34 @@
+.hero-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero-stats2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero-stats__item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  margin-right: 16px;
+}
+
+.hero-stats__icon {
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.hero-stats__dash {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.hero-stats__hero-name {
+  margin-right: 24px;
+}

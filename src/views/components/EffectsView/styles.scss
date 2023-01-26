@@ -1,0 +1,46 @@
+.effects-panel {
+  padding: 8px 16px;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+.effect-view {
+  --state-color: transparent;
+  --duration-color: transparent;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--state-color);
+  background: var(--url) no-repeat center 100%;
+  background-size: cover;
+  position: relative;
+
+  &--positive {
+    --state-color: greenyellow;
+    --duration-color: black;
+  }
+
+  &--negative {
+    --state-color: darkred;
+    --duration-color: white;
+  }
+}
+
+.effect-view__duration {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--state-color);
+  font-size: 12px;
+  border-radius: 50%;
+  color: var(--duration-color);
+  top: -8px;
+  right: -4px;
+  text-align: center;
+  line-height: 1.4;
+}

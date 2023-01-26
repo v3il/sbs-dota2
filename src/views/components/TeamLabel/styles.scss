@@ -1,0 +1,19 @@
+.team-label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+
+  &.radiant {
+    color: red;
+  }
+
+  &.dire {
+    color: blue;
+  }
+}
+
+.player-name {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}

@@ -1,0 +1,40 @@
+.progress-bar {
+  height: 24px;
+  width: 100%;
+  background: #121212;
+  margin-bottom: 8px;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: var(--percent-value);
+    background: lightgreen;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.progress-bar__values {
+  z-index: 1;
+  color: white;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hit-points-bar {
+  &:after {
+    background: green;
+  }
+}
+
+.mana-points-bar {
+  &:after {
+    background: blue;
+  }
+}

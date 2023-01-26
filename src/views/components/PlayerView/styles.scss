@@ -1,0 +1,20 @@
+.player-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.player-view__avatar-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.player-view__toolbar {
+  //flex-basis: 150px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 2;
+  padding: 16px;
+  border-radius: inherit;
+}

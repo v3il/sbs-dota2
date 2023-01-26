@@ -1,0 +1,19 @@
+.attack-button {
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  position: relative;
+  border: 1px solid #434340;
+  margin: 0 24px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.attack-button__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
