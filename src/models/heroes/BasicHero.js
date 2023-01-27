@@ -1,3 +1,5 @@
+import { DamageTypes } from '../../consts/DamageTypes';
+
 const BASE_HIT_POINTS = 150;
 const BASE_MANA_POINTS = 100;
 const BASE_EVASION = 0;
@@ -81,26 +83,27 @@ export class BasicHero {
     }
 
     attack(target) {
+        this.#events.emit('attack', { source: this, target });
+
         const isMiss = target.evasion > Math.random();
 
         if (isMiss) {
+            this.#events.emit('miss', { source: this });
             return;
         }
 
         const initialDamage = this.getInitialDamage();
-
         const damage = this.#attackModifiers.reduce((totalDmg, mod) => mod.applyModifier(totalDmg), initialDamage);
 
         target.takePhysicalDamage(damage);
-
-        this.#events.emit('attack', {
-            source: this, target, damage, initialDamage
-        });
     }
 
     async useSpell(spell, target) {
+        this.#events.emit('useSpell', {
+            source: this, target, spell
+        });
+
         await spell.invoke(target);
-        this.#events.emit('useSpell');
     }
 
     updateState() {
@@ -125,19 +128,31 @@ export class BasicHero {
 
     takePhysicalDamage(damage) {
         const reduction = this.#armor * 0.05;
-        const resultDamage = damage * (1 - reduction);
+        const resultDamage = Math.floor(damage * (1 - reduction));
 
         this.decreaseHitPoints(resultDamage);
+
+        this.#events.emit('damage', {
+            type: DamageTypes.PHYSICAL, damage, resultDamage, target: this
+        });
     }
 
     takeMagicalDamage(damage) {
-        const resultDamage = damage * (1 - this.#magicResistance);
+        const resultDamage = Math.floor(damage * (1 - this.#magicResistance));
 
         this.decreaseHitPoints(resultDamage);
+
+        this.#events.emit('damage', {
+            type: DamageTypes.MAGICAL, damage, resultDamage, target: this
+        });
     }
 
     takePureDamage(damage) {
         this.decreaseHitPoints(damage);
+
+        this.#events.emit('damage', {
+            type: DamageTypes.PURE, damage, resultDamage: damage, target: this
+        });
     }
 
     get isLeftAvatarDirection() {

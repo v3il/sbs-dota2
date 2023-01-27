@@ -25,7 +25,8 @@
 }
 
 .page-container__logger {
-  flex-basis: 200px;
+  flex-basis: 300px;
+  max-height: 300px;
 }
 
 .page-container__glass {
