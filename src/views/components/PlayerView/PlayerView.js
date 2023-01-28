@@ -2,8 +2,7 @@ import template from './template.html?raw';
 import { HeroStats } from '../HeroStats/HeroStats';
 import { ComponentView } from '../ComponentView';
 import './styles.scss';
-import { ActivePlayerLabel } from '../activePlayerLabel/ActivePlayerLabel';
-import { WinnerLabel } from '../WinnerLabel/WinnerLabel';
+import { PlayerLabel } from '../PlayerLabel/PlayerLabel';
 import { TeamLabel } from '../TeamLabel/TeamLabel';
 import { HeroAvatar } from '../HeroAvatar/HeroAvatar';
 import { EffectsPanel } from '../EffectsView/EffectsPanel';
@@ -28,16 +27,10 @@ export class PlayerView extends ComponentView {
         const player = this.#player;
         const { hero } = this.#player;
 
-        new ActivePlayerLabel({
+        new PlayerLabel({
             player,
             parentView: this,
             el: this.el.querySelector('[data-active-player-label]')
-        });
-
-        new WinnerLabel({
-            player,
-            parentView: this,
-            el: this.el.querySelector('[data-winner-label]')
         });
 
         new TeamLabel({
