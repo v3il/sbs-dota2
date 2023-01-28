@@ -37,19 +37,12 @@ export class Game {
         return this.currentPlayer === player;
     }
 
-    startGame() {
-        this.events.emit('gameStarted');
-    }
-
     moveToNextRound() {
         const isNextRound = this.currentPlayer === this.direPlayer;
 
         this.gameEnded = this.winner !== null;
         this.currentPlayer = this.enemyPlayer;
 
-        // this.currentPlayer.updateSpells();
-        // this.currentPlayer.updatePositiveEffects();
-        // this.enemyPlayer.updateNegativeEffects();
         this.events.emit('playerChanged', { currentPlayer: this.currentPlayer });
 
         if (isNextRound) {

@@ -1,5 +1,6 @@
 import template from './hero-picker-item-template.html?raw';
 import { ComponentView } from '../ComponentView';
+import { DotaAssetUrlManager } from '../../../services/DotaAssetUrlManager';
 
 export class HeroPickerItem extends ComponentView {
     #hero;
@@ -22,10 +23,9 @@ export class HeroPickerItem extends ComponentView {
     render() {
         this.mountElement(template);
 
-        const src = `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${this.#hero.id}.png`;
         const imageEl = this.el.querySelector('[data-image]');
 
-        imageEl.src = src;
+        imageEl.src = DotaAssetUrlManager.getHeroImageUrl(this.#hero.id);
         imageEl.alt = this.#hero.name;
 
         this.el.classList.add('hero-selector__item');

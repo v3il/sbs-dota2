@@ -2,6 +2,7 @@ import './styles.scss';
 import { game } from '../../../models';
 import { View } from '../../View';
 import { ComponentView } from '../ComponentView';
+import { DotaAssetUrlManager } from '../../../services/DotaAssetUrlManager';
 
 export class SpellButton extends ComponentView {
     spell;
@@ -39,9 +40,7 @@ export class SpellButton extends ComponentView {
             </button>
         `);
 
-        // eslint-disable-next-line max-len
-        const imageSrc = `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${this.spell.id}.png`;
-        this.el.querySelector('[data-spell-image]').src = imageSrc;
+        this.el.querySelector('[data-spell-image]').src = DotaAssetUrlManager.getSpellUrl(this.spell.id);
 
         if (this.spell.isActive) {
             this.el.querySelector('[data-spell-manacost]').textContent = this.spell.manacost;

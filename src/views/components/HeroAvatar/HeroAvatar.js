@@ -1,5 +1,6 @@
 import './styles.scss';
 import { ComponentView } from '../ComponentView';
+import { DotaAssetUrlManager } from '../../../services/DotaAssetUrlManager';
 
 export class HeroAvatar extends ComponentView {
     hero;
@@ -26,10 +27,7 @@ export class HeroAvatar extends ComponentView {
         const isLeftDirection = this.hero.isLeftAvatarDirection;
         const isReversedAvatar = (isRadiantPlayer && isLeftDirection) || (!isRadiantPlayer && !isLeftDirection);
 
-        // eslint-disable-next-line max-len
-        const url = `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${this.hero.id}.png`;
-
-        this.el.style.setProperty('--url', `url("${url}")`);
+        this.el.style.setProperty('--url', `url("${DotaAssetUrlManager.getHeroAvatarUrl(this.hero.id)}")`);
         this.el.classList.toggle('reverse', isReversedAvatar);
     }
 }
