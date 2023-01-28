@@ -1,4 +1,4 @@
-<div class="player-view" ref="rootEl">
+<div class="player-view">
   <div class="player-view__avatar-wrapper">
     <div data-hero-avatar></div>
     <div data-player-name></div>
@@ -8,13 +8,11 @@
   </div>
 
   <div class="player-view__toolbar">
-    <div class="bars">
-      <div data-hp></div>
-      <div data-mana></div>
-    </div>
+    <div data-hp></div>
+    <div data-mana></div>
 
-    <div class="flex">
-      <div class="spells">
+    <div class="player-view__actions">
+      <div class="player-view__spells">
         <div data-spell="0"></div>
         <div data-spell="1"></div>
         <div data-spell="2"></div>
@@ -22,7 +20,7 @@
         <div data-attack-button></div>
       </div>
 
-      <div class="flex--grow" data-hero-stats></div>
+      <div class="player-view__stats" data-hero-stats></div>
     </div>
   </div>
 </div>

@@ -57,12 +57,12 @@ export class Game {
         }
     }
 
-    async useSpell(spell) {
+    async triggerSpell(spell) {
         await this.currentPlayer.useSpell(spell, this.enemyHero);
         this.moveToNextRound();
     }
 
-    attackEnemyHero() {
+    triggerAttack() {
         this.currentPlayer.attack(this.enemyHero);
         this.moveToNextRound();
     }

@@ -10,11 +10,22 @@
 }
 
 .player-view__toolbar {
-  //flex-basis: 150px;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.05);
   z-index: 2;
   padding: 16px;
   border-radius: inherit;
+}
+
+.player-view__actions {
+  display: flex;
+}
+
+.player-view__stats {
+  flex: 1;
+}
+
+.player-view__spells {
+  flex: 0 0 auto;
 }

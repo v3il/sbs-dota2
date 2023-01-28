@@ -15,7 +15,7 @@ export class AttackButton extends ComponentView {
     }
 
     listenEvents() {
-        this.el.addEventListener('click', () => game.attackEnemyHero());
+        this.el.addEventListener('click', () => game.triggerAttack());
         game.events.on('playerChanged', () => this.toggleLock());
     }
 

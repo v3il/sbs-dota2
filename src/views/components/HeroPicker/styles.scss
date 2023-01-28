@@ -1,0 +1,21 @@
+.hero-selector {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hero-selector__item {
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.hero-selector__item.active {
+  border: 1px solid blue;
+}
+
+.hero-selector__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}

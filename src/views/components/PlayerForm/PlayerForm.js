@@ -38,7 +38,7 @@ export class PlayerForm extends ComponentView {
             hero: heroPicker.selectedHero,
             el: this.el.querySelector('[data-hero-stat]'),
             parentView: this,
-            classes: ['mb24']
+            classes: ['offset-bottom24']
         });
 
         heroPicker.on('change', (selectedHero) => heroStats.setHero(selectedHero));

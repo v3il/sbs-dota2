@@ -79,7 +79,7 @@ export class PlayerView extends ComponentView {
             maxValue: hero.maxHitPoints,
             parentView: this,
             el: this.el.querySelector('[data-hp]'),
-            classes: ['hit-points-bar']
+            classes: ['hit-points-bar', 'offset-bottom8']
         });
 
         const manaProgressBar = new ProgressBar({
@@ -87,7 +87,7 @@ export class PlayerView extends ComponentView {
             maxValue: hero.maxManaPoints,
             parentView: this,
             el: this.el.querySelector('[data-mana]'),
-            classes: ['mana-points-bar']
+            classes: ['mana-points-bar', 'offset-bottom24']
         });
 
         hero.events.on('change:hitPoints', () => hpProgressBar.setValue(hero.hitPoints));

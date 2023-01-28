@@ -1,6 +1,5 @@
 import './styles.scss';
 import { game } from '../../../models';
-import { View } from '../../View';
 import { ComponentView } from '../ComponentView';
 import { DotaAssetUrlManager } from '../../../services/DotaAssetUrlManager';
 
@@ -21,7 +20,7 @@ export class SpellButton extends ComponentView {
 
     listenEvents() {
         if (this.spell.isActive) {
-            this.el.addEventListener('click', () => game.useSpell(this.spell));
+            this.el.addEventListener('click', () => game.triggerSpell(this.spell));
             game.events.on('roundChanged', () => this.updateCooldownCounter());
         }
 
@@ -58,8 +57,6 @@ export class SpellButton extends ComponentView {
         const hasEnoughMana = this.spell.isActive ? this.spell.hasEnoughMana : true;
         const isOnCooldown = this.spell.isActive ? this.spell.isOnCooldown : false;
         const { isSilenced } = this.player.hero;
-
-        console.error(this.spell.id, isCurrentPlayer, hasEnoughMana, isOnCooldown, isSilenced);
 
         this.el.disabled = !isCurrentPlayer || !hasEnoughMana || game.gameEnded || isOnCooldown || isSilenced;
     }

@@ -1,5 +1,6 @@
 import { HeroPickerItem } from './HeroPickerItem';
 import { ComponentView } from '../ComponentView';
+import './styles.scss';
 
 export class HeroPicker extends ComponentView {
     #availableHeroes;
